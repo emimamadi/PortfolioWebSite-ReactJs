@@ -1,27 +1,36 @@
-import React , { Component }  from "react";
+import React  from "react";
+
 import "./testimonial.css";
-
-import AVTR1 from "../../asset/avatar1.jpg";
-
-
-// Import Swiper React components
-import  { Pagination} from 'Swiper';
-
-import { Swiper, SwiperSlide } from 'swiper/react';
 
 // Import Swiper styles
 import 'swiper/css';
+
+import AVTR1 from "../../asset/avatar1.jpg";
+
+import { Pagination, Scrollbar, A11y } from "swiper";
+
+// Import Swiper React components
+
+import { Swiper, SwiperSlide } from 'swiper/react';
+
 import 'swiper/css/pagination';
 
 
 
-const testimonial = () => {
+
+
+const Testimonial = () => {
   return (
     <section id="testimonial">
       <h5>Review from clients</h5>
       <h2>Testimonial</h2>
 
-      <Swiper className="container testomonials__container">
+      <Swiper className="container testomonials__container"
+        modules={[Pagination, Scrollbar, A11y]}
+        spaceBetween={40}
+        slidesPerView={1}
+        pagination={{ clickable: true }}
+       >
         <SwiperSlide className="testimonial">
           <div className="client__avatar">
             <img src={AVTR1} alt="Avatar One" />
@@ -68,4 +77,4 @@ const testimonial = () => {
   );
 };
 
-export default testimonial;
+export default Testimonial;
